@@ -1,0 +1,36 @@
+Hostname publicIP
+    user ubuntu
+    IdentityFile ~/.ssh/id_rsa.pub
+    ForwardAgent yes
+    ControlMaster auto
+    StrictHostKeyChecking no
+    ControlPath ~/.ssh/ansible-%r@%h:%p
+    ControlPersist 5m
+
+Host devA
+    Hostname 10.6.0.196
+    user ubuntu
+    IdentityFile ~/.ssh/id_rsa.pub
+    StrictHostKeyChecking no
+    ProxyCommand ssh -W %h:%p bastionET2598
+  
+Host devB
+    Hostname 10.6.0.247
+    user ubuntu
+    IdentityFile ~/.ssh/id_rsa.pub
+    StrictHostKeyChecking no
+    ProxyCommand ssh -W %h:%p bastionET2598
+    
+Host devC
+    Hostname 10.6.0.158
+    user ubuntu
+    IdentityFile ~/.ssh/id_rsa.pub
+    StrictHostKeyChecking no
+    ProxyCommand ssh -W %h:%p bastionET2598
+
+Host devhaproxy
+    Hostname 10.6.0.241
+    user ubuntu
+    IdentityFile ~/.ssh/id_rsa.pub
+    StrictHostKeyChecking no
+    ProxyCommand ssh -W %h:%p bastionET2598
