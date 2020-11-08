@@ -61,7 +61,7 @@
       state: present
    - name: update HAProxy config file
      template:
-      src: templates/haproxy.cfg.j2
+      src: files/haproxy.cfg.j2
       dest: /etc/haproxy/haproxy.cfg
    - name: Restart HAProxy
      service:
