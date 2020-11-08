@@ -24,12 +24,12 @@
    - name: Copying php file
      become: yes
      copy:
-       src: templates/index.php
+       src: files/index.php
        dest: /var/www/html/
    - name: Add template file
      become: yes
      template:
-       src: templates/nginx.conf
+       src: files/nginx.conf
        dest: /etc/nginx/sites-available/default
    - name: Enabling conf files in nginx available sites
      become: yes
